@@ -51,7 +51,7 @@ db_bash:
 .PHONY: deploy
 
 deploy:
-	kubectl apply -f .k8s/deployment.yml && kubectl apply -f .k8s/service.yml
+	kind create cluster --name=${APP_NAME} && kubectl apply -f .k8s/deployment.yml && kubectl apply -f .k8s/service.yml
 
 .PHONY: ssl
 
