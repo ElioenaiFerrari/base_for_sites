@@ -3,7 +3,7 @@ include .env
 .PHONY: build
 
 build:
-	./ssl/ssl.sh && docker-compose build 
+	make down && ./ssl/ssl.sh && docker-compose build && /etc/init.d/networking restart 
 
 .PHONY: down
 

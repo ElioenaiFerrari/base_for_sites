@@ -6,6 +6,7 @@ services:
     container_name: $APP_NAME-nginx
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/sites-available:/etc/nginx/sites-available
       - ./ssl/certificate.crt:/etc/ssl/certificate.crt
       - ./ssl/certificate.key:/etc/ssl/certificate.key
     ports:
