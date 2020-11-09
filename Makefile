@@ -56,7 +56,7 @@ deploy:
 .PHONY: destroy
 
 destroy:
-	kind delete cluster --name=${APP_NAME}
+	kind delete cluster --name=${APP_NAME}-cluster
 
 .PHONY: ssl
 

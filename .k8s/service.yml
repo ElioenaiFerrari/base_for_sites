@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: $APP_NAME-service
+  name: site-template-service
 spec:
   type: LoadBalancer
   ports:
-    - port: $APP_PORT
+    - port: 3333
   selector:
-    app: $APP_NAME
+    app: site-template

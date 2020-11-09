@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: $APP_NAME
+  name: site-template
 spec:
-  replicas: $K8S_REPLICAS
+  replicas: 2
   selector:
     matchLabels:
-      app: $APP_NAME
+      app: site-template
   template:
     metadata:
       labels:
-        app: $APP_NAME
+        app: site-template
     spec:
       containers:
-        - name: $APP_NAME
-          image: elioenaiferrari/$APP_NAME
+        - name: site-template
+          image: elioenaiferrari/site-template
           ports:
-            - containerPort: $APP_PORT
+            - containerPort: 3333
