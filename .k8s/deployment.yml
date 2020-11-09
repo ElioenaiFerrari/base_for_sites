@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubernetes-dev
+  template:
+    metadata:
+      labels:
+        app: kubernetes-dev
+    spec:
+      containers:
+        - name: kubernetes-dev
+          image: elioenaiferrari/kubernetes
+          ports:
+            - containerPort: 3000
