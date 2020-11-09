@@ -51,7 +51,12 @@ db_bash:
 .PHONY: deploy
 
 deploy:
-	kind create cluster --name=${APP_NAME} && kubectl apply -f .k8s/deployment.yml && kubectl apply -f .k8s/service.yml
+	kind create cluster --name=${APP_NAME}-cluster && kubectl apply -f .k8s/deployment.yml && kubectl apply -f .k8s/service.yml
+	
+.PHONY: destroy
+
+destroy:
+	kind delete cluster --name=${APP_NAME}
 
 .PHONY: ssl
 
