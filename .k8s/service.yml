@@ -5,6 +5,7 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: 3333
+    - port: 443
+      targetPort: 443
   selector:
     app: site-template

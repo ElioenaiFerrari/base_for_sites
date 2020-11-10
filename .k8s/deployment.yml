@@ -16,4 +16,4 @@ spec:
         - name: site-template
           image: elioenaiferrari/site-template
           ports:
-            - containerPort: 3333
+            - containerPort: 443

@@ -11,10 +11,12 @@ then
 fi
 
 APP_HOST=$(cat .env | grep APP_HOST | cut -d= -f2)
-search_host=$(cat /etc/hosts | grep $APP_HOST)
+search_host=$(cat /etc/resolv.conf | grep $APP_HOST)
 
 if [ -z $search_host ]
 then
   echo "registering host..."
-  sed -i "/127.0.0.1/a127.0.0.1\t$APP_HOST" /etc/hosts
+  echo "nameserver 127.0.0.1\\
+        search $APP_HOST\\
+        options ndots:2" >> /etc/resolv.conf
 fi
